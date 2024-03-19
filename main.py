@@ -10,10 +10,10 @@ pasta = "/Users/silasbernardo/Documents/programasGit/album_App/Images/"
 root.iconbitmap(pasta + 'Icone-Preto.ico')
 
 #Funções
-def back():
+def back(number):
     number -= number
-
-def next():
+    return number
+def proximo(number):
     number += number
 
 
@@ -25,15 +25,16 @@ my_img4 = ImageTk.PhotoImage(Image.open(pasta +'img4.jpg'))
 my_img5 = ImageTk.PhotoImage(Image.open(pasta +'img5.jpg'))
 my_img6 = ImageTk.PhotoImage(Image.open(pasta +'img6.jpg'))
 
- global number= 1
+global number
+number=5
 
 my_img = [my_img6,my_img5,my_img4,my_img3,my_img2,my_img1]
 
 my_Label = Label(image= my_img[number])
-my_Label.pack()
 
-button_Next = Button(root, text='>>',command=next)
-button_Back = Button(root, text= '<<', command= back)
+
+button_Next = Button(root, text='>>',command= proximo(1))
+button_Back = Button(root, text= '<<', command= back(1))
 button_quit= Button(root,text='Sair do Programa', command= root.quit)
 '''
 button_Next.grid(row = 0, column= 0)
@@ -41,6 +42,7 @@ button_Back.grid(row = 0, column= 1, columnspan=2)
 button_quit.grid(row = 0, column= 2,)
 '''
 
+my_Label.pack()
 button_quit.pack()
 button_Back.pack()
 button_Next.pack()
